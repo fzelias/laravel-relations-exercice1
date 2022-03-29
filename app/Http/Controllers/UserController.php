@@ -134,4 +134,16 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route("users.index")->with("success", "User has been deleted !");
     }
+
+    public function favori($id)
+    {
+        $user = User::find($id);
+        if ($user->favori) {
+            $user->favori = false;
+        } else {
+            $user->favori = true;
+        }
+        $user->save();
+        return redirect()->route("users.index")->with("success", "User has been updated !");
+    }
 }

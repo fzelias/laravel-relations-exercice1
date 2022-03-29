@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('mdp');
             $table->date('ddn');
             $table->string("genre");
+            $table->boolean("favori")->default(false);
             $table->foreignId("role_id")->constrained("roles", "id")->onDelete("cascade")->onUpdate("cascade");
             $table->rememberToken();
             $table->timestamps();

@@ -48,6 +48,7 @@
                                                 <th>EMAIL</th>
                                                 <th>DATE DE NAISSANCE</th>
                                                 <th>GENRE</th>
+                                                <th>FAVORI</th>
                                                 <th>ROLE</th>
                                                 <th>HANDLE</th>
                                             </tr>
@@ -61,6 +62,19 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->ddn }}</td>
                                                     <td>{{ $user->genre }}</td>
+                                                    <td>
+                                                        <form action="{{ route('users.favori', $user->id) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @if ($user->favori)
+                                                                <button class="btn"><i
+                                                                        class="fa-solid fa-star"></i></button>
+                                                            @else
+                                                                <button class="btn"><i
+                                                                        class="fa-regular fa-star"></i></button>
+                                                            @endif
+                                                        </form>
+                                                    </td>
                                                     <td>{{ $user->role->nom }}</td>
                                                     <td>
                                                         <div class="d-flex">

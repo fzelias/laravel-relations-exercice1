@@ -22,3 +22,4 @@ Route::get('/', function () {
 
 Route::resource("/back/roles", RoleController::class);
 Route::resource("/back/users", UserController::class);
+Route::post("/back/users/{id}/favori", [UserController::class, "favori"])->name("users.favori");
